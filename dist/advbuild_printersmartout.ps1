@@ -118,7 +118,8 @@ $advArgument = '/execute ' + $Config.PathAdvancedInstallerProjectFile + ' ' + $C
 Write-Host $Config.PathAdvancedInstallerExecuter
 Write-Host $advArgument
 # Start-Process -WindowStyle Hidden -Wait -FilePath ('"' + $Config.PathAdvancedInstallerExecuter + '"') -ArgumentList ('"' + $advArgument + '"')
-Start-Process -WindowStyle Hidden -Wait -FilePath $Config.PathAdvancedInstallerExecuter -ArgumentList $advArgument
+Start-Process -FilePath $Config.PathAdvancedInstallerExecuter
+Start-Process -Wait -FilePath $Config.PathAdvancedInstallerExecuter1 -ArgumentList $advArgument
 Write-Host ('CompressZip {0}=>{1}' -f $Config.PathAdvancedInstallerOutputFile, $Config.PathAdvancedInstallerOutputFileZip)
 compress-archive -path $Config.PathAdvancedInstallerOutputFile -destinationpath ($Config.PathAdvancedInstallerOutputFileZip) -Force
 if ($Config.IsRunRcUpload) {    

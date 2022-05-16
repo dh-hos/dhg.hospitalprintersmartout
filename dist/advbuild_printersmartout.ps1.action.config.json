@@ -5,6 +5,7 @@
    "PathAdvancedInstallerProjectFile": "..\\Deploy_Tools\\Setup.aip",
    "PathAdvancedInstallerOutputFolder": "..\\Deploy_Tools\\OutputFiles",
    "PathAdvancedInstallerExecuter": "C:\\adv\\adv.exe",
+   "PathAdvancedInstallerExecuter1": "C:\\adv\\App\\ProgramFiles\\bin\\x86\\advinst.exe",
    "OutputPackageName": "HospitalPrinterSmartOut.exe",
    "PathRcloneZip": "..\\Deploy_Tools\\rclone.exe.zip",
    "RcloneCloudPath": "",
