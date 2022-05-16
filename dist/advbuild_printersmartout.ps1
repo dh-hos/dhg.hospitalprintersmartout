@@ -115,8 +115,9 @@ $arrayLines | Out-File -FilePath $Config.PathAdvancedInstallerCommandFile
 # &AdvancedInstaller.com /execute $Config.PathAdvancedInstallerProjectFile $Config.PathAdvancedInstallerCommandFile 
 # &$Config.PathAdvancedInstallerExecuter /execute $Config.PathAdvancedInstallerProjectFile $Config.PathAdvancedInstallerCommandFile 
 $advArgument = '/execute ' + $Config.PathAdvancedInstallerProjectFile + ' ' + $Config.PathAdvancedInstallerCommandFile
+Write-Host $Config.PathAdvancedInstallerExecuter
 Write-Host $advArgument
-Start-Process -Wait -FilePath $Config.PathAdvancedInstallerExecuter -ArgumentList $advArgument
+Start-Process -Wait -FilePath ('"' + $Config.PathAdvancedInstallerExecuter + '"') -ArgumentList ('"' + $advArgument + '"')
 Write-Host ('CompressZip {0}=>{1}' -f $Config.PathAdvancedInstallerOutputFile, $Config.PathAdvancedInstallerOutputFileZip)
 compress-archive -path $Config.PathAdvancedInstallerOutputFile -destinationpath ($Config.PathAdvancedInstallerOutputFileZip) -Force
 if ($Config.IsRunRcUpload) {    
