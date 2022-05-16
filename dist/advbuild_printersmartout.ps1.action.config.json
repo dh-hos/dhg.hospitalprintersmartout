@@ -4,6 +4,7 @@
    "PathAdvancedInstallerCommandFile": "..\\Deploy_Tools\\BuildCommandFile.githubignore.txt",
    "PathAdvancedInstallerProjectFile": "..\\Deploy_Tools\\Setup.aip",
    "PathAdvancedInstallerOutputFolder": "..\\Deploy_Tools\\OutputFiles",
+   "PathAdvancedInstallerExecuter": "C:\\adv\\adv.exe",
    "OutputPackageName": "HospitalPrinterSmartOut.exe",
    "PathRcloneZip": "..\\Deploy_Tools\\rclone.exe.zip",
    "RcloneCloudPath": "",
