@@ -84,6 +84,16 @@ $arrayLines = New-Object System.Collections.Generic.List[string]
 $arrayLines.Add(';aic')
 $arrayLines.Add('SetVersion {0}' -f $Config.Version)
 $arrayLines.Add('SetProperty ExecuteVersion="{0}"' -f $fileVersion.FileVersion)
+
+#ProductDetail
+try {
+    foreach ($pro in $Config.ProductDetail.PSObject.Properties) {
+        $arrayLines.Add('SetProperty ' + $pro.Name + '="{0}"' -f $pro.Value)
+    }
+}
+catch {
+}
+
 $arrayLines.Add('SetOutputLocation -buildname DefaultBuild -path {0}' -f $Config.PathAdvancedInstallerOutputFolder)
 $arrayLines.Add('SetPackageName {0} -buildname DefaultBuild' -f $Config.OutputPackageName)
 if ($Config.IsAddFileAPPDIR) {
@@ -112,14 +122,13 @@ $arrayLines.Add('Save')
 $arrayLines.Add('Rebuild')
 $arrayLines | Out-File -FilePath $Config.PathAdvancedInstallerCommandFile
 
-# &AdvancedInstaller.com /execute $Config.PathAdvancedInstallerProjectFile $Config.PathAdvancedInstallerCommandFile 
-# &$Config.PathAdvancedInstallerExecuter /execute $Config.PathAdvancedInstallerProjectFile $Config.PathAdvancedInstallerCommandFile 
 $advArgument = '/execute ' + $Config.PathAdvancedInstallerProjectFile + ' ' + $Config.PathAdvancedInstallerCommandFile
 Write-Host $Config.PathAdvancedInstallerExecuter
 Write-Host $advArgument
-# Start-Process -WindowStyle Hidden -Wait -FilePath ('"' + $Config.PathAdvancedInstallerExecuter + '"') -ArgumentList ('"' + $advArgument + '"')
-Start-Process -FilePath $Config.PathAdvancedInstallerExecuter
-Start-Process -Wait -FilePath $Config.PathAdvancedInstallerExecuter1 -ArgumentList $advArgument
+$advId1 = (Start-Process -FilePath $Config.PathAdvancedInstallerExecuter -PassThru).Id
+$advId2 = (Start-Process -Wait -FilePath $Config.PathAdvancedInstallerExecuter1 -ArgumentList $advArgument).Id
+try { Stop-Process -Id $advId1 }catch {}
+try { Stop-Process -Id $advId2 }catch {}
 Write-Host ('CompressZip {0}=>{1}' -f $Config.PathAdvancedInstallerOutputFile, $Config.PathAdvancedInstallerOutputFileZip)
 compress-archive -path $Config.PathAdvancedInstallerOutputFile -destinationpath ($Config.PathAdvancedInstallerOutputFileZip) -Force
 if ($Config.IsRunRcUpload) {    
