@@ -125,8 +125,16 @@ $arrayLines | Out-File -FilePath $Config.PathAdvancedInstallerCommandFile
 $advArgument = '/execute ' + $Config.PathAdvancedInstallerProjectFile + ' ' + $Config.PathAdvancedInstallerCommandFile
 Write-Host $Config.PathAdvancedInstallerExecuter
 Write-Host $advArgument
-$advId1 = (Start-Process -FilePath $Config.PathAdvancedInstallerExecuter -PassThru).Id
-$advId2 = (Start-Process -Wait -FilePath $Config.PathAdvancedInstallerExecuter1 -ArgumentList $advArgument).Id
+try { 
+    Write-Host 'Run path: {0}' -f $Config.PathAdvancedInstallerExecuter
+    $advId1 = (Start-Process -FilePath $Config.PathAdvancedInstallerExecuter -PassThru).Id 
+}
+catch {}
+try {     
+    Write-Host 'Run path: {0}' -f $Config.PathAdvancedInstallerExecuter1
+    $advId2 = (Start-Process -Wait -FilePath $Config.PathAdvancedInstallerExecuter1 -ArgumentList $advArgument).Id 
+}
+catch {}
 try { Stop-Process -Id $advId1 }catch {}
 try { Stop-Process -Id $advId2 }catch {}
 Write-Host ('CompressZip {0}=>{1}' -f $Config.PathAdvancedInstallerOutputFile, $Config.PathAdvancedInstallerOutputFileZip)
