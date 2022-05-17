@@ -73,6 +73,7 @@ function GetLastBuild () {
     $response = Invoke-RestMethod -Uri $url -Method 'GET'
     return $response
 } 
+
 $Config | Add-Member -NotePropertyName LastBuild -NotePropertyValue (GetLastBuild)
 if ($Config.LastBuild.ToString() -eq $Config.Version) {
     Write-Host ('Exists build: {0}' -f $Config.LastBuild)
@@ -136,7 +137,7 @@ catch {
     write-host "Error:advId1"  $_.Exception.Message ""
 }
 try {     
-    Start-Process -Wait -FilePath $Config.PathAdvancedInstallerExecuter1 -ArgumentList $advArgument
+    Start-Process -FilePath $Config.PathAdvancedInstallerExecuter1 -ArgumentList $advArgument
     # Write-Host 'Run path: {0}' -f $Config.PathAdvancedInstallerExecuter1
     # $process2 = Start-Process -Wait -FilePath $Config.PathAdvancedInstallerExecuter1 -ArgumentList $advArgument
     # $advId2 = $process2.Id 
@@ -144,6 +145,22 @@ try {
 catch {
     write-host "Error:advId2"  $_.Exception.Message ""
     Write-Error $_
+
+    Write-Warning "Computer failed: $computer - $env - $logicalname CPU failed: $CPUInfos"
+    Write-Warning "Error message: $_"
+    if ( $errorlog ) {
+        $errormsg = $_.ToString()
+        $exception = $_.Exception
+        $stacktrace = $_.ScriptStackTrace
+        $failingline = $_.InvocationInfo.Line
+        $positionmsg = $_.InvocationInfo.PositionMessage
+        $pscommandpath = $_.InvocationInfo.PSCommandPath
+        $failinglinenumber = $_.InvocationInfo.ScriptLineNumber
+        $scriptname = $_.InvocationInfo.ScriptName
+        Write-Verbose "Start writing to Error log."
+        Write-ErrorLog -hostname $computer -env $env -logicalname $logicalname -errormsg $errormsg -exception $exception -scriptname $scriptname -failinglinenumber $failinglinenumber -failingline $failingline -pscommandpath $pscommandpath -positionmsg $pscommandpath -stacktrace $stacktrace
+        Write-Verbose "Finish writing to Error log."
+    }
 }
 # try { Stop-Process -Id $advId1 }catch {}
 # try { Stop-Process -Id $advId2 }catch {}
