@@ -127,14 +127,16 @@ Write-Host $Config.PathAdvancedInstallerExecuter
 Write-Host $advArgument
 try { 
     Write-Host 'Run path: {0}' -f $Config.PathAdvancedInstallerExecuter
-    $advId1 = (Start-Process -FilePath $Config.PathAdvancedInstallerExecuter -PassThru).Id 
+    $process1 = Start-Process -FilePath $Config.PathAdvancedInstallerExecuter -PassThru
+    $advId1 = $process1.Id 
 }
 catch {
     write-host "Error:advId1"  $_.Exception.Message ""
 }
 try {     
     Write-Host 'Run path: {0}' -f $Config.PathAdvancedInstallerExecuter1
-    $advId2 = (Start-Process -Wait -FilePath $Config.PathAdvancedInstallerExecuter1 -ArgumentList $advArgument -PassThru).Id 
+    $process2 = Start-Process -Wait -FilePath $Config.PathAdvancedInstallerExecuter1 -ArgumentList $advArgument
+    $advId2 = $process2.Id 
 }
 catch {
     write-host "Error:advId2"  $_.Exception.Message ""
