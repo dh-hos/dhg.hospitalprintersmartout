@@ -123,20 +123,22 @@ $arrayLines.Add('Rebuild')
 $arrayLines | Out-File -FilePath $Config.PathAdvancedInstallerCommandFile
 
 $advArgument = '/execute ' + $Config.PathAdvancedInstallerProjectFile + ' ' + $Config.PathAdvancedInstallerCommandFile
-Write-Host $Config.PathAdvancedInstallerExecuter
+Write-Host $Config.PathAdvancedInstallerExecuter, $Config.PathAdvancedInstallerExecuter1
 Write-Host $advArgument
 try { 
-    Write-Host 'Run path: {0}' -f $Config.PathAdvancedInstallerExecuter
-    $process1 = Start-Process -FilePath $Config.PathAdvancedInstallerExecuter -PassThru
-    $advId1 = $process1.Id 
+    Start-Process -FilePath $Config.PathAdvancedInstallerExecuter -PassThru
+    # Write-Host 'Run path: {0}' -f $Config.PathAdvancedInstallerExecuter
+    # $process1 = Start-Process -FilePath $Config.PathAdvancedInstallerExecuter -PassThru
+    # $advId1 = $process1.Id 
 }
 catch {
     write-host "Error:advId1"  $_.Exception.Message ""
 }
 try {     
-    Write-Host 'Run path: {0}' -f $Config.PathAdvancedInstallerExecuter1
-    $process2 = Start-Process -Wait -FilePath $Config.PathAdvancedInstallerExecuter1 -ArgumentList $advArgument
-    $advId2 = $process2.Id 
+    Start-Process -Wait -FilePath $Config.PathAdvancedInstallerExecuter1 -ArgumentList $advArgument
+    # Write-Host 'Run path: {0}' -f $Config.PathAdvancedInstallerExecuter1
+    # $process2 = Start-Process -Wait -FilePath $Config.PathAdvancedInstallerExecuter1 -ArgumentList $advArgument
+    # $advId2 = $process2.Id 
 }
 catch {
     write-host "Error:advId2"  $_.Exception.Message ""
