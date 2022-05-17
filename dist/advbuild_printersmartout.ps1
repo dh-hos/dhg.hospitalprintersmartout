@@ -127,6 +127,7 @@ Write-Host $Config.PathAdvancedInstallerExecuter, $Config.PathAdvancedInstallerE
 Write-Host $advArgument
 try { 
     Start-Process -FilePath $Config.PathAdvancedInstallerExecuter -PassThru
+    Start-Sleep -Seconds 5
     # Write-Host 'Run path: {0}' -f $Config.PathAdvancedInstallerExecuter
     # $process1 = Start-Process -FilePath $Config.PathAdvancedInstallerExecuter -PassThru
     # $advId1 = $process1.Id 
