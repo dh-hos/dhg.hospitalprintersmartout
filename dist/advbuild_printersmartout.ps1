@@ -143,8 +143,8 @@ try {
 catch {
     write-host "Error:advId2"  $_.Exception.Message ""
 }
-try { Stop-Process -Id $advId1 }catch {}
-try { Stop-Process -Id $advId2 }catch {}
+# try { Stop-Process -Id $advId1 }catch {}
+# try { Stop-Process -Id $advId2 }catch {}
 Write-Host ('CompressZip {0}=>{1}' -f $Config.PathAdvancedInstallerOutputFile, $Config.PathAdvancedInstallerOutputFileZip)
 compress-archive -path $Config.PathAdvancedInstallerOutputFile -destinationpath ($Config.PathAdvancedInstallerOutputFileZip) -Force
 if ($Config.IsRunRcUpload) {    
