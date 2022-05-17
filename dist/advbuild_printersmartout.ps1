@@ -129,12 +129,16 @@ try {
     Write-Host 'Run path: {0}' -f $Config.PathAdvancedInstallerExecuter
     $advId1 = (Start-Process -FilePath $Config.PathAdvancedInstallerExecuter -PassThru).Id 
 }
-catch {}
+catch {
+    write-host "Error:advId1"  $_.Exception.Message ""
+}
 try {     
     Write-Host 'Run path: {0}' -f $Config.PathAdvancedInstallerExecuter1
-    $advId2 = (Start-Process -Wait -FilePath $Config.PathAdvancedInstallerExecuter1 -ArgumentList $advArgument).Id 
+    $advId2 = (Start-Process -Wait -FilePath $Config.PathAdvancedInstallerExecuter1 -ArgumentList $advArgument -PassThru).Id 
 }
-catch {}
+catch {
+    write-host "Error:advId2"  $_.Exception.Message ""
+}
 try { Stop-Process -Id $advId1 }catch {}
 try { Stop-Process -Id $advId2 }catch {}
 Write-Host ('CompressZip {0}=>{1}' -f $Config.PathAdvancedInstallerOutputFile, $Config.PathAdvancedInstallerOutputFileZip)
