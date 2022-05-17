@@ -24,12 +24,12 @@
     <ROW Property="ARPSYSTEMCOMPONENT" Value="1"/>
     <ROW Property="ARPURLINFOABOUT" Value="https://github.com/o-static"/>
     <ROW Property="ARPURLUPDATEINFO" Value="https://github.com/o-static"/>
-    <ROW Property="ExecuteVersion" Value="1.22.0516.5"/>
+    <ROW Property="ExecuteVersion" Value="1.22.0517.2"/>
     <ROW Property="Manufacturer" Value="DHG Pharma"/>
-    <ROW Property="ProductCode" Value="1033:{7EB7E80E-2E99-4A9E-8AD1-12893E68E830} " Type="16"/>
+    <ROW Property="ProductCode" Value="1033:{179E10BA-EAD2-45BC-88F3-36AF7C97C11D} " Type="16"/>
     <ROW Property="ProductLanguage" Value="1033"/>
     <ROW Property="ProductName" Value="HospitalPrinterSmartOut"/>
-    <ROW Property="ProductVersion" Value="1.22.05165.5" Type="32"/>
+    <ROW Property="ProductVersion" Value="1.22.05172.2" Type="32"/>
     <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND;AI_SETUPEXEPATH;SETUPEXEDIR"/>
     <ROW Property="UpgradeCode" Value="{3681C32C-864F-42D7-B06D-30F756A5F818}"/>
     <ROW Property="WindowsType9X" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
