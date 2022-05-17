@@ -143,6 +143,7 @@ try {
 }
 catch {
     write-host "Error:advId2"  $_.Exception.Message ""
+    Write-Error $_
 }
 # try { Stop-Process -Id $advId1 }catch {}
 # try { Stop-Process -Id $advId2 }catch {}
