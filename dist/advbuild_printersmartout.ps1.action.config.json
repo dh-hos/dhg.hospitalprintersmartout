@@ -4,10 +4,8 @@
    "PathAdvancedInstallerCommandFile": "..\\Deploy_Tools\\BuildCommandFile.githubignore.txt",
    "PathAdvancedInstallerProjectFile": "..\\Deploy_Tools\\Setup.aip",
    "PathAdvancedInstallerOutputFolder": "..\\Deploy_Tools\\OutputFiles",
-   "PathAdvancedInstallerExecuter": "C:\\adv\\adv.exe",
-   "_PathAdvancedInstallerExecuter": "E:\\CLOUDCODE\\o-docker\\servercore.adv.18.8.1\\adv\\adv.exe",
-   "PathAdvancedInstallerExecuter1": "C:\\adv\\App\\ProgramFiles\\bin\\x86\\advinst.exe",
-   "_PathAdvancedInstallerExecuter1": "E:\\CLOUDCODE\\o-docker\\servercore.adv.18.8.1\\adv\\App\\ProgramFiles\\bin\\x86\\advinst.exe",
+   "PathAdvancedInstallerExecuter": "C:\\Program Files (x86)\\Caphyon\\Advanced Installer 14.8\\bin\\x86\\advinst.exe",
+   "PathAdvancedInstallerExecuter1": "C:\\Program Files (x86)\\Caphyon\\Advanced Installer 14.8\\bin\\x86\\advinst.exe",
    "ProductDetail": {
       "ProductName": "HospitalPrinterSmartOut",
       "Manufacturer": "DHG Pharma",

@@ -14,3 +14,6 @@ list_id_drive_app.txt
 *githubignore*
 dist/rclone.conf
 dist/rclone.exe
+Deploy_Tools/Setup-cache/cacheIndex.txt
+Deploy_Tools/Setup-cache/part2/output-info.ini
+Deploy_Tools/Setup-cache/part2/SetupServices1.cab
