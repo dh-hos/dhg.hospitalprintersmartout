@@ -26,7 +26,7 @@
     <ROW Property="ARPURLUPDATEINFO" Value="https://github.com/o-static"/>
     <ROW Property="ExecuteVersion" Value="1.22.0519.1"/>
     <ROW Property="Manufacturer" Value="DHG Pharma"/>
-    <ROW Property="ProductCode" Value="1033:{CCC9DCE6-88D8-4CA8-A735-70DCEDD20110} " Type="16"/>
+    <ROW Property="ProductCode" Value="1033:{5C52A27F-2EDE-4654-9844-F6AB67D85479} " Type="16"/>
     <ROW Property="ProductLanguage" Value="1033"/>
     <ROW Property="ProductName" Value="HospitalPrinterSmartOut"/>
     <ROW Property="ProductVersion" Value="1.22.05191.1" Type="32"/>
@@ -49,7 +49,7 @@
     <ROW Directory="TARGETDIR" DefaultDir="SourceDir"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiCompsComponent">
-    <ROW Component="AI_CustomARPName" ComponentId="{E405259F-BAD4-4B01-8376-B15B57607B02}" Directory_="APPDIR" Attributes="4" KeyPath="DisplayName" Options="1"/>
+    <ROW Component="AI_CustomARPName" ComponentId="{E16639BE-B28C-437C-BED6-8BBFB152E54C}" Directory_="APPDIR" Attributes="4" KeyPath="DisplayName" Options="1"/>
     <ROW Component="AI_ExePath" ComponentId="{6D7CF812-8453-4A30-9900-9987901A9141}" Directory_="APPDIR" Attributes="4" KeyPath="AI_ExePath"/>
     <ROW Component="APPDIR" ComponentId="{8F41C1D6-E11A-4F31-80BB-98A0B4FDAF2B}" Directory_="APPDIR" Attributes="0"/>
     <ROW Component="BouncyCastle.Crypto.dll" ComponentId="{C070DCF0-DDD0-46FD-9CA6-F694F224DC9F}" Directory_="APPDIR" Attributes="0" KeyPath="BouncyCastle.Crypto.dll"/>
