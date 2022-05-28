@@ -92,8 +92,8 @@ try {
         $arrayLines.Add('SetProperty ' + $pro.Name + '="{0}"' -f $pro.Value)
     }
 }
-catch {
-}
+catch {}
+#ProductDetail
 
 $arrayLines.Add('SetOutputLocation -buildname DefaultBuild -path {0}' -f $Config.PathAdvancedInstallerOutputFolder)
 $arrayLines.Add('SetPackageName {0} -buildname DefaultBuild' -f $Config.OutputPackageName)
@@ -123,34 +123,11 @@ $arrayLines.Add('Save')
 $arrayLines.Add('Rebuild')
 $arrayLines | Out-File -FilePath $Config.PathAdvancedInstallerCommandFile
 
+#Build by Adv
 $advArgument = '/execute ' + $Config.PathAdvancedInstallerProjectFile + ' ' + $Config.PathAdvancedInstallerCommandFile
-Write-Host $Config.PathAdvancedInstallerExecuter, $Config.PathAdvancedInstallerExecuter1
-Write-Host $advArgument
-try { 
-    # Start-Process -FilePath $Config.PathAdvancedInstallerExecuter -PassThru
-    # Start-Sleep -Seconds 5
-    # Write-Host 'Run path: {0}' -f $Config.PathAdvancedInstallerExecuter
-    # $process1 = Start-Process -FilePath $Config.PathAdvancedInstallerExecuter -PassThru
-    # $advId1 = $process1.Id 
-}
-catch {
-    write-host "Error:advId1"  $_.Exception.Message ""
-}
-try {     
-    Start-Process -Wait -FilePath $Config.PathAdvancedInstallerExecuter1 -ArgumentList $advArgument
-    # Write-Host 'Run path: {0}' -f $Config.PathAdvancedInstallerExecuter1
-    # $process2 = Start-Process -Wait -FilePath $Config.PathAdvancedInstallerExecuter1 -ArgumentList $advArgument
-    # $advId2 = $process2.Id 
-}
-catch {
-    write-host "Error:advId2"  $_.Exception.Message ""
-    Write-Error $_
+Start-Process -Wait -FilePath $Config.PathAdvancedInstallerExecuter1 -ArgumentList $advArgument
+#End build by Adv
 
-    Write-Warning "Computer failed: $computer - $env - $logicalname CPU failed: $CPUInfos"
-    Write-Warning "Error message: $_"
-}
-# try { Stop-Process -Id $advId1 }catch {}
-# try { Stop-Process -Id $advId2 }catch {}
 Write-Host ('CompressZip {0}=>{1}' -f $Config.PathAdvancedInstallerOutputFile, $Config.PathAdvancedInstallerOutputFileZip)
 compress-archive -path $Config.PathAdvancedInstallerOutputFile -destinationpath ($Config.PathAdvancedInstallerOutputFileZip) -Force
 if ($Config.IsRunRcUpload) {    
