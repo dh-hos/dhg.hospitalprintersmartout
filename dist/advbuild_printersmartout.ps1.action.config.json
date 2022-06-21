@@ -84,7 +84,6 @@
       "OTH.XForms.dll",
       "OTH.XForms.v.1.0.dll",
       "OTH.XReports.dll",
-      "OTHDrive.dll",
       "LogoSmartOut.ico",
       "OTH.Resources.dll",
       "OTH.GLib.dll",
@@ -106,8 +105,6 @@
       "OTH.PAY.ViettinBank.Crypto.dll",
       "OTH.PAY.ViettinBank.Hos.dll",
       "Newtonsoft.Json.dll",
-      "MISA.MeInvoice.Lib2.dll",
-      "MISA.MeInvoice.DataContract.dll",
       "OTH.UpdaterNet.dll",
       "System.Net.Http.dll",
       "System.Net.Http.Formatting.dll"
