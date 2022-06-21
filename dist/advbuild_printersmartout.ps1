@@ -125,8 +125,8 @@ $arrayLines | Out-File -FilePath $Config.PathAdvancedInstallerCommandFile
 
 #Build by Adv
 $advArgument = '/execute ' + $Config.PathAdvancedInstallerProjectFile + ' ' + $Config.PathAdvancedInstallerCommandFile
-Start-Process -Wait -FilePath $Config.PathAdvancedInstallerExecuter1 -ArgumentList $advArgument
-#End build by Adv
+Start-Process -Wait -FilePath $Config.PathAdvancedInstallerExecuter -ArgumentList $advArgument
+#End build adv
 
 Write-Host ('CompressZip {0}=>{1}' -f $Config.PathAdvancedInstallerOutputFile, $Config.PathAdvancedInstallerOutputFileZip)
 compress-archive -path $Config.PathAdvancedInstallerOutputFile -destinationpath ($Config.PathAdvancedInstallerOutputFileZip) -Force
