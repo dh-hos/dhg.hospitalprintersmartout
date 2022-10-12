@@ -107,7 +107,8 @@
       "Newtonsoft.Json.dll",
       "OTH.UpdaterNet.dll",
       "System.Net.Http.dll",
-      "System.Net.Http.Formatting.dll"
+      "System.Net.Http.Formatting.dll",
+      "OTH.XForms.v.1.2.dll"
    ],
    "IsNewShortcut": true,
    "AdvancedInstallerShortcut": {
