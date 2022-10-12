@@ -2,6 +2,12 @@
 
 <div align="center" style="font-size:xx-small">(✨: Chức năng mới,🐛: Chỉnh lỗi, #️⃣: Giải quyết công việc) </div>
 
+##### [v1.22.1012.2]()
+
+-  âœ¨:
+-  ðŸ›:
+-  #ï¸âƒ£:
+
 ##### [v1.22.1012.1]()
 
 -  🐛: Fix lỗi không thể hiện được form thể hiện số thứ tự bệnh nhân ra tivi
