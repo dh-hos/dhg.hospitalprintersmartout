@@ -7,3 +7,5 @@
 
 -  #️⃣: https://github.com/dh-hos/dhg.hospitalprinter/issues/73 [OK]
 -  🐛: Fix lỗi không thể hiện được form thể hiện số thứ tự bệnh nhân ra tivi [OK]
+
+-  ✨: Thêm parameter donvi (Diễn giải quầy phát thuốc) thể hiện form in ra tivi ![](../MoTaThayDoi/Outtv/ThemPara-donvi-01.png)![](../MoTaThayDoi/Outtv/ThemPara-donvi-02.png) [OK]
